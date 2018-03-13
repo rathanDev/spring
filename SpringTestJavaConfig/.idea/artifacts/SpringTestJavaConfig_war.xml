@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="SpringTestJavaConfig:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="SpringTestJavaConfig.war">
+      <element id="artifact" artifact-name="SpringTestJavaConfig:war exploded" />
+    </root>
+  </artifact>
+</component>
