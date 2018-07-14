@@ -1,0 +1,1 @@
+Simple hibernate demo
