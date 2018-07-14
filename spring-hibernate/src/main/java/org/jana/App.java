@@ -1,4 +1,4 @@
-package jana;
+package org.jana;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

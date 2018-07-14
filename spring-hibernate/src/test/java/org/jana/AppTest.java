@@ -1,4 +1,4 @@
-package jana;
+package org.jana;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
