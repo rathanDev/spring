@@ -12,7 +12,17 @@
 </head>
 <body>
 
-index jsp
+<h1>Spring-mvc</h1>
+
+<%--<c:if test="${not empty name}">--%>
+<p>Hey ${name}</p>
+<%--</c:if>--%>
+
+<br/>
+
+<p>
+    ${message}
+</p>
 
 </body>
 </html>
