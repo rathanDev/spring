@@ -60,3 +60,12 @@ left join employee e on d.id = e.department_id
 group by d.id
 order by d.name
 ) t
+
+
+
+select d.id as deptId, d.name as deptName, avg(e.salary) as avgDeptSalary
+from department d
+left join employee e on d.id = e.department_id
+group by d.id
+having avg(e.salary) > 1000
+order by d.name
