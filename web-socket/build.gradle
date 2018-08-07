@@ -6,8 +6,8 @@ version = '0.1.0'
 
 description = """"""
 
-sourceCompatibility = 1.5
-targetCompatibility = 1.5
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
 
 tasks.withType(JavaCompile) {
 	options.encoding = 'UTF-8'
@@ -24,4 +24,13 @@ dependencies {
     compile group: 'org.webjars', name: 'bootstrap', version:'3.3.7'
     compile group: 'org.webjars', name: 'jquery', version:'3.1.0'
     testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version:'2.0.3.RELEASE'
+}
+
+jar {
+    manifest {
+        attributes(
+                'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
+                'Main-Class': 'hello.Application'
+        )
+    }
 }
