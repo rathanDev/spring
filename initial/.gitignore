@@ -1,7 +1,4 @@
 .idea/
 .gradle/
-/target
-.mvn
-.classpath
-.project
-.settings
+build/
+target/
