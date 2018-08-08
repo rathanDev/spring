@@ -11,4 +11,9 @@ public class HomeController {
         return "Greeting from this boot!";
     }
 
+    @RequestMapping("/sample-get")
+    public String sampleGet() {
+        return "sample get results";
+    }
+
 }
