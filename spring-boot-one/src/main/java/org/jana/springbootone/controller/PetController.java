@@ -31,11 +31,11 @@ public class PetController {
         return ResponseEntity.ok().body(pet);
     }
 
-    @RequestMapping(value = "/swagger", method = RequestMethod.GET, produces = "application/json")
-    public ResponseEntity<Pet> useSwagger() {
-        System.out.println("get pet ");
+    @RequestMapping(value = "/swagger/{id}", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<Pet> useSwagger(@ApiParam(value = "ID of pet that needs to be fetched", allowableValues = "range[1,10]", required = true) @PathVariable("id") Integer petId) {
+        System.out.println("get pet " + petId);
         Pet pet = new Pet();
-        pet.setId(11);
+        pet.setId(petId);
         return ResponseEntity.ok().body(pet);
     }
 
