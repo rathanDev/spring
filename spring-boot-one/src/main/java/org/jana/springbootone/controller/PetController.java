@@ -31,6 +31,15 @@ public class PetController {
         return ResponseEntity.ok().body(pet);
     }
 
+    @RequestMapping(value = "/swagger", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<Pet> useSwagger() {
+        System.out.println("get pet ");
+        Pet pet = new Pet();
+        pet.setId(11);
+        return ResponseEntity.ok().body(pet);
+    }
+
+
 //    @RequestMapping("/")
 //    public String index() {
 //        System.out.println("Greeting from pet controller!");
