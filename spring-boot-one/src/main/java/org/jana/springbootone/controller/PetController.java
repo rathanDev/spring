@@ -23,6 +23,14 @@ public class PetController {
         return "id";
     }
 
+    @RequestMapping(value = "/json", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<Pet> getPet() {
+        System.out.println("get pet ");
+        Pet pet = new Pet();
+        pet.setId(1);
+        return ResponseEntity.ok().body(pet);
+    }
+
 //    @RequestMapping("/")
 //    public String index() {
 //        System.out.println("Greeting from pet controller!");
