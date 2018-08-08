@@ -17,6 +17,12 @@ public class PetController {
         return "Greeting from pet controller";
     }
 
+    @RequestMapping(value = "/id", method = RequestMethod.GET, produces = "application/json")
+    public String getId() {
+        System.out.println("get id");
+        return "id";
+    }
+
 //    @RequestMapping("/")
 //    public String index() {
 //        System.out.println("Greeting from pet controller!");
