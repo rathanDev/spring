@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-//@RequestMapping("/pet")
+@RequestMapping("/pet")
 public class PetController {
 
-    @RequestMapping("/pet")
+    @RequestMapping("")
     public String index() {
-        return "Greeting from pet controller!";
+        return "Greeting from pet controller";
     }
 
 //    @RequestMapping("/")
