@@ -3,8 +3,8 @@ Designing Microservices using Spring Boot, Spring Cloud, Eureka and Zuul | # 1 |
 https://www.youtube.com/watch?v=rlS9eH5tEnY&t=899s
 
 start.spring.io
-Dependencies: mysql, web, jpa
-
+db-service Dependencies: mysql, web, jpa
+stock-service   Dependencies: web, eureka
 
 #Mysql
 select Host, User from mysql.user;
