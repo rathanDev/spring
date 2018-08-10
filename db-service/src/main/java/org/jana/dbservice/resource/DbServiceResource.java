@@ -19,16 +19,25 @@ public class DbServiceResource {
     @GetMapping("/{username}")
     public List<String> getQuotes(@PathVariable("username") final String username) {
         System.out.println("GetQuotes");
-        return quotesRepository.findByUsername(username)
-                .stream()
-                .map(Quote::getQuote)
-                .collect(Collectors.toList());
+        return getQuotesByUsername(username);
     }
 
     @PostMapping("/add")
     public List<String> add(@RequestBody final Quotes quotes) {
         System.out.println("Add");
-        return null;
+        quotes.getQuotes()
+                .stream()
+                .map(quote -> new Quote(quotes.getUsername(), quote))
+                .forEach(quote -> quotesRepository.save(quote));
+        return getQuotesByUsername(quotes.getUsername());
+    }
+
+    private List<String> getQuotesByUsername(String username) {
+        System.out.println("getQuotesByUsername, username = " + username);
+        return quotesRepository.findByUsername(username)
+                .stream()
+                .map(Quote::getQuote)
+                .collect(Collectors.toList());
     }
 
 }
