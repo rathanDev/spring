@@ -32,6 +32,14 @@ public class DbServiceResource {
         return getQuotesByUsername(quotes.getUsername());
     }
 
+    @PostMapping("/delete/{username}")
+    public List<String> delete(@PathVariable("username") final String username) {
+        System.out.println("Delete " + username);
+        List<Quote> quotes = quotesRepository.findByUsername(username);
+        quotesRepository.deleteAll(quotes);
+        return getQuotesByUsername(username);
+    }
+
     private List<String> getQuotesByUsername(String username) {
         System.out.println("getQuotesByUsername, username = " + username);
         return quotesRepository.findByUsername(username)
