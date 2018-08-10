@@ -48,7 +48,7 @@ public class StockResource {
             return YahooFinance.get(quote);
         } catch (IOException e) {
             e.printStackTrace();
-            return null;
+            return new Stock(quote);
         }
     }
 

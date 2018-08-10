@@ -17,8 +17,10 @@ GRANT ALL PRIVILEGES ON test.* TO 'testuser'@'%' IDENTIFIED BY 'Test@123';
 
 No such method error
 when using 2.0.4 of spring boot parent
+because of mixed up dependencies
 use start.spring.io, properly generate the project
 
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
 
 
 #http
