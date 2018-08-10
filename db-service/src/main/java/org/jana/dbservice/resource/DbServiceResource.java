@@ -1,6 +1,7 @@
 package org.jana.dbservice.resource;
 
 import org.jana.dbservice.model.Quote;
+import org.jana.dbservice.model.Quotes;
 import org.jana.dbservice.repository.QuotesRepository;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,6 +16,7 @@ public class DbServiceResource {
 
     @GetMapping("/{username}")
     public List<String> getQuotes(@PathVariable("username") final String username) {
+        System.out.println("GetQuotes");
         return quotesRepository.findByUsername(username)
                 .stream()
                 .map(Quote::getQuote)
@@ -22,7 +24,8 @@ public class DbServiceResource {
     }
 
     @PostMapping("/add")
-    public List<String> add(@RequestBody final Quote quote) {
+    public List<String> add(@RequestBody final Quotes quotes) {
+        System.out.println("Add");
         return null;
     }
 
