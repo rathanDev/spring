@@ -23,13 +23,13 @@ public class StockResource {
     @Autowired
     RestTemplate restTemplate;
 
-    /*
-    List<String> quotes = restTemplate.getForObject("http://localhost:8300/rest/db" + username, List.class);
-     @Override
-                    public Type getType() {
-                        return super.getType();
-                    }
-    * */
+
+//    List<String> quotes = restTemplate.getForObject("http://localhost:8300/rest/db" + username, List.class);
+//     @Override
+//                    public Type getType() {
+//                        return super.getType();
+//                    }
+
 
     @GetMapping("/{username}")
     public List<Stock> getStock(@PathVariable("username") final String username) {

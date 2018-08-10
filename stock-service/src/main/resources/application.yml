@@ -2,6 +2,8 @@ spring:
   application:
     name: stock-service
 
+server:
+  port: 8301
 
 eureka:
   client:
@@ -11,6 +13,3 @@ eureka:
       defaultZone: http://localhost:8070/eureka
     instance:
       hostname: localhost
-
-server:
-  port:8301
