@@ -14,6 +14,7 @@ import yahoofinance.Stock;
 import yahoofinance.YahooFinance;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -36,7 +37,7 @@ public class StockResource {
     @GetMapping("/sample-string")
     public String getString() {
         System.out.println("Get sample string");
-        return "test-string";
+        return "test-string here";
     }
 
     @GetMapping("/sample")
@@ -46,22 +47,43 @@ public class StockResource {
     }
 
     @GetMapping("get/{username}")
-    public List<Stock> getStock(@PathVariable("username") final String username) {
-        System.out.println("Get stock, username" + username);
-        ResponseEntity<ArrayList> call= restTemplate.getForEntity("http://localhost:8300/rest/db/" + username, ArrayList.class);
+    public List<Quote> getStock(@PathVariable("username") final String username) {
+        System.out.println("Get stock, username:" + username);
+        ResponseEntity<ArrayList> call= restTemplate.getForEntity("http://db-service/rest/db/" + username, ArrayList.class);
         List<String> quotes = call.getBody();
         return quotes.stream()
-                .map(this::getStockPrice)
+                .map(quote -> {
+                    BigDecimal price = getStockPrice(quote);
+                    return new Quote(quote, price);
+                })
                 .collect(Collectors.toList());
     }
 
-    private Stock getStockPrice(String quote) {
+    private BigDecimal getStockPrice(String quote) {
         System.out.println("Get stock price, quote:" + quote);
         try {
-            return YahooFinance.get(quote);
+            return YahooFinance.get(quote).getQuote().getPrice();
         } catch (IOException e) {
             e.printStackTrace();
-            return new Stock(quote);
+            return BigDecimal.ZERO;
+        }
+    }
+
+    private class Quote {
+        private final String quote;
+        private final BigDecimal price;
+
+        public Quote(String quote, BigDecimal price) {
+            this.quote = quote;
+            this.price = price;
+        }
+
+        public String getQuote() {
+            return quote;
+        }
+
+        public BigDecimal getPrice() {
+            return price;
         }
     }
 
