@@ -1,0 +1,27 @@
+POST http://localhost:8300/rest/db/add
+#POST http://localhost:8300/rest/db/delete/jana
+Accept: */*
+Content-Type: application/json
+
+//{
+//  "username": "gates",
+//  "quotes": ["Acuqire the super power of reading fast"]
+//}
+
+{
+  "username": "jana",
+  "quotes": ["Be the change, that you wish to see in this world",
+    "No one can make you feel inferior without your consent"]
+}
+
+<> 2018-08-10T040409.500.json
+<> 2018-08-10T034727.500.json
+<> 2018-08-10T034715.404.json
+<> 2018-08-10T034655.404.json
+<> 2018-08-10T022704.200.json
+<> 2018-08-10T022610.200.json
+<> 2018-08-10T122714.200.json
+<> 2018-08-10T122604.500.json
+
+
+###
