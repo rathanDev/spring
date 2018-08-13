@@ -47,8 +47,8 @@ public class StockResource {
 
     @GetMapping("get/{username}")
     public List<Stock> getStock(@PathVariable("username") final String username) {
-        System.out.println("Get stock");
-        ResponseEntity<ArrayList> call= restTemplate.getForEntity("http://localhost:8300/rest/db/jana", ArrayList.class);
+        System.out.println("Get stock, username" + username);
+        ResponseEntity<ArrayList> call= restTemplate.getForEntity("http://localhost:8300/rest/db/" + username, ArrayList.class);
         List<String> quotes = call.getBody();
         return quotes.stream()
                 .map(this::getStockPrice)

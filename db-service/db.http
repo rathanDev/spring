@@ -1,13 +1,13 @@
-GET http://localhost:8300/rest/db/jana
-#POST http://localhost:8300/rest/db/add
+#GET http://localhost:8300/rest/db/jana
+POST http://localhost:8300/rest/db/add
 #POST http://localhost:8300/rest/db/delete/jana
 Accept: */*
 Content-Type: application/json
 
-//{
-//  "username": "gates",
-//  "quotes": ["Acuqire the super power of reading fast"]
-//}
+{
+  "username": "tata",
+  "quotes": ["GOOG"]
+}
 
 //{
 //  "username": "jana",
