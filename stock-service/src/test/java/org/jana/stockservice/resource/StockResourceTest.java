@@ -1,5 +1,6 @@
 package org.jana.stockservice.resource;
 
+import org.jana.stockservice.model.StockQuote;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,5 +22,14 @@ public class StockResourceTest {
         ResponseEntity<String> call= restTemplate.getForEntity("http://localhost:8301/rest/stock/sample-string", String.class);
         System.out.println(call.getBody());
     }
+
+    @Test
+    public void testGetSampleStock() {
+        System.out.println("Get sample string");
+        ResponseEntity<StockQuote> call= restTemplate.getForEntity("http://localhost:8301/rest/stock/sample", StockQuote.class);
+        System.out.println(call.getBody());
+    }
+
+
 
 }
