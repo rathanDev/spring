@@ -32,13 +32,19 @@ public class StockResource {
 //                    }
 
 
-    @GetMapping("/get-test")
-    public StockQuote getTest() {
-        System.out.println("Get test");
+    @GetMapping("/get-string")
+    public String getString() {
+        System.out.println("Get string");
+        return "test-string";
+    }
+
+    @GetMapping("/get-sample")
+    public StockQuote getStock() {
+        System.out.println("Get stock");
         return new StockQuote("test");
     }
 
-    @GetMapping("/{username}")
+    @GetMapping("get/{username}")
     public List<Stock> getStock(@PathVariable("username") final String username) {
         System.out.println("Get stock");
         ResponseEntity<List<String>> quoteResponse = restTemplate.exchange("http://localhost:8300/rest/db" + username, HttpMethod.GET,
