@@ -1,5 +1,6 @@
 package org.jana.stockservice.resource;
 
+import org.jana.stockservice.model.StockQuote;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
@@ -31,6 +32,12 @@ public class StockResource {
 //                    }
 
 
+    @GetMapping("/get-test")
+    public StockQuote getTest() {
+        System.out.println("Get test");
+        return new StockQuote("test");
+    }
+
     @GetMapping("/{username}")
     public List<Stock> getStock(@PathVariable("username") final String username) {
         System.out.println("Get stock");
@@ -44,6 +51,7 @@ public class StockResource {
     }
 
     private Stock getStockPrice(String quote) {
+        System.out.println("Get stock price, quote:" + quote);
         try {
             return YahooFinance.get(quote);
         } catch (IOException e) {
