@@ -32,15 +32,15 @@ public class StockResource {
 //                    }
 
 
-    @GetMapping("/get-string")
+    @GetMapping("/sample-string")
     public String getString() {
-        System.out.println("Get string");
+        System.out.println("Get sample string");
         return "test-string";
     }
 
-    @GetMapping("/get-sample")
+    @GetMapping("/sample")
     public StockQuote getStock() {
-        System.out.println("Get stock");
+        System.out.println("Get sample stock");
         return new StockQuote("test");
     }
 

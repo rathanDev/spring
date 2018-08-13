@@ -32,7 +32,7 @@ public class StockResourceTest {
 //                });
 //        System.out.println("quoteResponse = " + quoteResponse);
 
-        ResponseEntity<String> call= restTemplate.getForEntity("http://localhost:8300/rest/db/get-string", String.class);
+        ResponseEntity<String> call= restTemplate.getForEntity("http://localhost:8301/rest/stock/get-string", String.class);
         System.out.println(call.getBody());
     }
 
