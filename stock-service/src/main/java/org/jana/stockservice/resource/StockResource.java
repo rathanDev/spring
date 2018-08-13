@@ -14,6 +14,7 @@ import yahoofinance.Stock;
 import yahoofinance.YahooFinance;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -47,10 +48,8 @@ public class StockResource {
     @GetMapping("get/{username}")
     public List<Stock> getStock(@PathVariable("username") final String username) {
         System.out.println("Get stock");
-        ResponseEntity<List<String>> quoteResponse = restTemplate.exchange("http://localhost:8300/rest/db" + username, HttpMethod.GET,
-                null, new ParameterizedTypeReference<List<String>>() {
-                });
-        List<String> quotes = quoteResponse.getBody();
+        ResponseEntity<ArrayList> call= restTemplate.getForEntity("http://localhost:8300/rest/db/jana", ArrayList.class);
+        List<String> quotes = call.getBody();
         return quotes.stream()
                 .map(this::getStockPrice)
                 .collect(Collectors.toList());

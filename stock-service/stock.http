@@ -1,5 +1,5 @@
-GET http://localhost:8301/rest/stock/sample-string
-#GET http://localhost:8301/rest/stock/jana
+#GET http://localhost:8301/rest/stock/sample-string
+GET http://localhost:8301/rest/stock/get/jana
 Accept: */*
 Content-Type: application/json
 
