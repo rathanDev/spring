@@ -21,22 +21,3 @@ because of mixed up dependencies
 use start.spring.io, properly generate the project
 
 com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
-
-
-#http
-#POST http://localhost:8300/rest/db/add
-POST http://localhost:8300/rest/db/delete/jana
-Accept: */*
-Content-Type: application/json
-
-#{
-#  "username": "rathan",
-#  "quotes": ["Train insane or remain same",
-#    "Feel the power of silence"]
-#}
-
-#{
-#  "username": "jana",
-#  "quotes": ["Be the change, that you wish to see in this world",
-#    "No one can make you feel inferior without your consent"]
-#}
