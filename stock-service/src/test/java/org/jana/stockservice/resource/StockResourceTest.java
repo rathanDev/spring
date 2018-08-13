@@ -38,7 +38,7 @@ public class StockResourceTest {
         System.out.println("Get db");
         ResponseEntity<ArrayList> call= restTemplate.getForEntity("http://localhost:8300/rest/db/jana", ArrayList.class);
         List<String> quotes = call.getBody();
-        quotes.stream().forEach(q -> System.out.println(q));
+        quotes.forEach(q -> System.out.println(q));
     }
 
 }
