@@ -1,0 +1,56 @@
+GET http://localhost:8301/rest/stock/sample-string
+Accept: */*
+Content-Type: application/json
+
+<> 2018-08-13T045829.200.txt
+
+###
+
+GET http://localhost:8301/rest/stock/sample-string
+Accept: */*
+Content-Type: application/json
+
+<> 2018-08-13T045716.200.txt
+
+###
+
+GET http://localhost:8301/rest/stock/sample-string
+Accept: */*
+Content-Type: application/json
+
+<> 2018-08-13T045604.200.txt
+
+###
+
+GET http://localhost:8301/rest/stock/get/tata
+Accept: */*
+Content-Type: application/json
+
+<> 2018-08-13T045558.500.json
+
+###
+
+GET http://localhost:8301/rest/stock/get/tata
+Accept: */*
+Content-Type: application/json
+
+<> 2018-08-13T045209.500.json
+
+###
+
+GET http://localhost:8301/rest/stock/get/tata
+Accept: */*
+Content-Type: application/json
+
+<> 2018-08-13T044604.500.json
+
+###
+
+GET http://localhost:8301/rest/stock/sample-string
+Accept: */*
+Content-Type: application/json
+
+<> 2018-08-13T044556.200.txt
+
+###
+

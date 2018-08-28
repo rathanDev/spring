@@ -1,0 +1,7 @@
+{
+  "timestamp": "2018-08-13T11:16:04.445+0000",
+  "status": 500,
+  "error": "Internal Server Error",
+  "message": "No instances available for localhost",
+  "path": "/rest/stock/get/tata"
+}
