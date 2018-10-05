@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -27,11 +28,12 @@ public class JourneyController {
     }
 
     @GetMapping("/find/{haltId}")
-    public String find(@PathVariable("haltId") int haltid) {
+    @ResponseBody
+    public Halt find(@PathVariable("haltId") int haltid) {
         System.out.println("selected haltid = " + haltid);
         Halt halt = journeyService.findById(haltid);
-        System.out.println("halt = " + halt);
-        return "journey";
+        System.out.println("selected halt = " + halt);
+        return halt;
     }
 
 

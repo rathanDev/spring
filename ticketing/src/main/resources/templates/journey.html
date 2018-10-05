@@ -8,6 +8,7 @@
 <body>
 
 Select a halt
+
 <div class="col-lg-3">
     <select class="target">
         <option value="">select</option>
@@ -15,7 +16,15 @@ Select a halt
     </select>
 </div>
 
-<button id="buttonId">button</button>
+<br>
+
+Next halt:
+<label id="nextHalt"></label>
+
+<br>
+
+Previous halt:
+<label id="previousHalt"></label>
 
 <script>
     $(document).ready(function(){
@@ -30,7 +39,9 @@ Select a halt
             var haltId = parseInt(halt.split(":")[0].trim());
 
             $.get( "/journey/find/" + haltId, function( data ) {
-                $( ".result" ).html( data );
+                console.log('data', data);
+                $("#nextHalt").text(data.nextHalt.name);
+                $("#previousHalt").text(data.previousHalt.name);
             });
 
         });
