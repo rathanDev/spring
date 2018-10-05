@@ -6,9 +6,10 @@
 </head>
 <body>
 
+Select a halt
 <div class="col-lg-3">
     <select class="form-control" id="testOrder" name="testOrder">
-        <option value="">Select a halt</option>
+        <option value="">select</option>
         <option th:each="halt : ${halts}" th:value="${halt.name}" th:text="${halt.name}+' : '+${halt.name}"></option>
     </select>
 </div>
