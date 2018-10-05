@@ -6,8 +6,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
 
-    public String login(LoginForm loginForm) {
-        return "login";
+    public boolean login(LoginForm loginForm) {
+        return loginForm.getUsername().equals("user") && loginForm.getPassword().equals("password");
     }
 
 }

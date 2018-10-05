@@ -18,9 +18,11 @@ public class UserController {
 
     @PostMapping("/login")
     public String greetingSubmit(@ModelAttribute LoginForm loginForm) {
-        String login = userService.login(loginForm);
-        System.out.println("login = " + login);
-        return "result";
+        boolean loggedIn = userService.login(loginForm);
+        if(loggedIn) {
+            return "dashboard";
+        }
+        return "error";
     }
 
 }

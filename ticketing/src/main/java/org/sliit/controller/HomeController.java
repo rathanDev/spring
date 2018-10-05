@@ -9,9 +9,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class HomeController {
 
+    @GetMapping("")
+    public String welcome(Model model) {
+        model.addAttribute("loginForm", new LoginForm());
+        return "index";
+    }
+
     @GetMapping("/dashboard")
     public String login(Model model) {
-        model.addAttribute("loginForm", new LoginForm());
         return "dashboard";
     }
 
