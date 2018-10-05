@@ -4,8 +4,10 @@ public class Halt {
 
     private String name;
     private String location;
-    private String nextHalt;
-    private String previousHalt;
+    private String nextHaltName;
+    private Halt nextHalt;
+    private String previousHaltName;
+    private Halt previousHalt;
 
     public String getName() {
         return name;
@@ -23,19 +25,36 @@ public class Halt {
         this.location = location;
     }
 
-    public String getNextHalt() {
+    public String getNextHaltName() {
+        return nextHaltName;
+    }
+
+    public void setNextHaltName(String nextHaltName) {
+        this.nextHaltName = nextHaltName;
+    }
+
+    public String getPreviousHaltName() {
+        return previousHaltName;
+    }
+
+    public void setPreviousHaltName(String previousHaltName) {
+        this.previousHaltName = previousHaltName;
+    }
+
+    public Halt getNextHalt() {
         return nextHalt;
     }
 
-    public void setNextHalt(String nextHalt) {
+    public void setNextHalt(Halt nextHalt) {
         this.nextHalt = nextHalt;
     }
 
-    public String getPreviousHalt() {
+    public Halt getPreviousHalt() {
         return previousHalt;
     }
 
-    public void setPreviousHalt(String previousHalt) {
+    public void setPreviousHalt(Halt previousHalt) {
         this.previousHalt = previousHalt;
     }
+
 }

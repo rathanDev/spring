@@ -1,14 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>journey</title>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
 
-Start Journey
-
-
+<div class="col-lg-3">
+    <select class="form-control" id="testOrder" name="testOrder">
+        <option value="">Select a halt</option>
+        <option th:each="halt : ${halts}" th:value="${halt.name}" th:text="${halt.name}+' : '+${halt.name}"></option>
+    </select>
+</div>
 
 </body>
 </html>
+
