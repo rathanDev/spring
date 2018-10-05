@@ -17,31 +17,48 @@ public class JourneyService {
 
     private void createHalts() {
 
+        Halt policeHalt = new Halt();
         Halt arpicoHalt = new Halt();
         Halt roxyHalt = new Halt();
         Halt williamHalt = new Halt();
+        Halt flyOverHalt = new Halt();
 
+        policeHalt.setId(1);
+        policeHalt.setName("Wellawatte Police Station");
+        policeHalt.setNextHalt(new Halt());
+        policeHalt.setPreviousHalt(arpicoHalt);
 
-        arpicoHalt.setId(1);
+        arpicoHalt.setId(2);
         arpicoHalt.setName("wellawatte arpico");
-        arpicoHalt.setNextHaltName("wellawatte police");
-        arpicoHalt.setPreviousHaltName("dehiwala roxy");
+//        arpicoHalt.setNextHaltName("wellawatte police");
+        arpicoHalt.setNextHalt(policeHalt);
+        arpicoHalt.setPreviousHalt(roxyHalt);
+//        arpicoHalt.setPreviousHaltName("dehiwala roxy");
 
-        roxyHalt.setId(2);
+        roxyHalt.setId(3);
         roxyHalt.setName("Dehiwala roxy");
-        roxyHalt.setNextHaltName("Wellawatter arpico");
+//        roxyHalt.setNextHaltName("Wellawatter arpico");
         roxyHalt.setNextHalt(arpicoHalt);
-        roxyHalt.setPreviousHaltName("dehiwala william");
+//        roxyHalt.setPreviousHaltName("dehiwala william");
         roxyHalt.setPreviousHalt(williamHalt);
 
-        williamHalt.setId(3);
+        williamHalt.setId(4);
         williamHalt.setName("Dehiwala william");
-        williamHalt.setNextHaltName("dehiwala roxy");
-        williamHalt.setPreviousHaltName("dehiwala flyover");
+//        williamHalt.setNextHaltName("dehiwala roxy");
+        williamHalt.setNextHalt(roxyHalt);
+//        williamHalt.setPreviousHaltName("dehiwala flyover");
+        williamHalt.setPreviousHalt(flyOverHalt);
 
+        flyOverHalt.setId(5);
+        flyOverHalt.setName("Dehiwal fly over");
+        flyOverHalt.setNextHalt(williamHalt);
+        flyOverHalt.setPreviousHalt(new Halt());
+
+        halts.add(policeHalt);
         halts.add(arpicoHalt);
         halts.add(roxyHalt);
         halts.add(williamHalt);
+        halts.add(flyOverHalt);
     }
 
     public List<Halt> getHalts() {
@@ -57,10 +74,6 @@ public class JourneyService {
             }
         }
         return selected;
-    }
-
-    public String start() {
-        return "start";
     }
 
 }

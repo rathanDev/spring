@@ -40,8 +40,8 @@ Previous halt:
 
             $.get( "/journey/find/" + haltId, function( data ) {
                 console.log('data', data);
-                $("#nextHalt").text(data.nextHalt.name);
-                $("#previousHalt").text(data.previousHalt.name);
+                $("#nextHalt").text(data.nextHaltName);
+                $("#previousHalt").text(data.previousHaltName);
             });
 
         });

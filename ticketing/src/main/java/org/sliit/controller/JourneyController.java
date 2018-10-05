@@ -31,8 +31,14 @@ public class JourneyController {
     @ResponseBody
     public Halt find(@PathVariable("haltId") int haltid) {
         System.out.println("selected haltid = " + haltid);
-        Halt halt = journeyService.findById(haltid);
-        System.out.println("selected halt = " + halt);
+        Halt selectedHalt = journeyService.findById(haltid);
+        System.out.println("selectedHalt = " + selectedHalt);
+
+        Halt halt = new Halt();
+        halt.setNextHaltName(selectedHalt.getNextHalt().getName());
+        halt.setPreviousHaltName(selectedHalt.getPreviousHalt().getName());
+        System.out.println("halt = " + halt);
+
         return halt;
     }
 
