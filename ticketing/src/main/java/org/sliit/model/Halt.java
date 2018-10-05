@@ -2,12 +2,21 @@ package org.sliit.model;
 
 public class Halt {
 
+    private int id;
     private String name;
     private String location;
     private String nextHaltName;
     private Halt nextHalt;
     private String previousHaltName;
     private Halt previousHalt;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -55,6 +64,17 @@ public class Halt {
 
     public void setPreviousHalt(Halt previousHalt) {
         this.previousHalt = previousHalt;
+    }
+
+    @Override
+    public String toString() {
+        return "Halt{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", location='" + location + '\'' +
+                ", nextHaltName='" + nextHaltName + '\'' +
+                ", previousHaltName='" + previousHaltName + '\'' +
+                '}';
     }
 
 }

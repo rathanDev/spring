@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -18,11 +19,20 @@ public class JourneyController {
     JourneyService journeyService;
 
     @GetMapping("/start")
-    public String greetingSubmit(Model model) {
-        List<Halt> halts = journeyService.createHalts();
+    public String start(Model model) {
+        List<Halt> halts = journeyService.getHalts();
         System.out.println("halts = " + halts);
         model.addAttribute("halts", halts);
         return "journey";
     }
+
+    @GetMapping("/find/{haltId}")
+    public String find(@PathVariable("haltId") int haltid) {
+        System.out.println("selected haltid = " + haltid);
+        Halt halt = journeyService.findById(haltid);
+        System.out.println("halt = " + halt);
+        return "journey";
+    }
+
 
 }
