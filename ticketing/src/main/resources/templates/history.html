@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>halt</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<h1 style="text-align:center">History</h1>
+
+<table style="width:100%">
+
+    <tr>
+        <th>Date</th>
+        <th>From halt</th>
+        <th>To halt</th>
+    </tr>
+
+    <tr th:each="journey : ${journeys}">
+        <td><span th:text="${journey.date}"></span></td>
+        <td><span th:text="${journey.fromHaltName}"></span></td>
+        <td><span th:text="${journey.toHaltName}"></span></td>
+    </tr>
+
+</table>
+
+</body>
+</html>
+

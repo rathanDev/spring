@@ -78,4 +78,8 @@ public class JourneyService {
         System.out.println("Journeys " + journeys);
     }
 
+    public List<Journey> getJourneys() {
+        return journeys;
+    }
+
 }

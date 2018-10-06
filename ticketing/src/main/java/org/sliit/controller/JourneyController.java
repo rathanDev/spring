@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -46,9 +48,25 @@ public class JourneyController {
                        @PathVariable("toHaltId") int toHaltId) {
         Halt fromHalt = journeyService.findById(fromHaltId);
         Halt toHalt = journeyService.findById(toHaltId);
-        journeyService.save(new Journey(fromHalt, toHalt));
+        journeyService.save(new Journey(new Date(), fromHalt, toHalt));
         return "ok";
     }
 
+    @GetMapping("/history")
+    public String getHistory(Model model) {
+        System.out.println("Get history");
+
+        List<Journey> journeys = new ArrayList<>();
+        for(Journey journey: journeyService.getJourneys()) {
+            journeys.add(new Journey(journey.getDate(), journey.getFromHalt().getName(), journey.getToHalt().getName()));
+        }
+
+//        journeys.add(new Journey(new Date(), "halt1", "halt2"));
+//        journeys.add(new Journey(new Date(), "halt2", "halt3"));
+//        journeys.add(new Journey(new Date(), "halt3", "halt4"));
+
+        model.addAttribute("journeys", journeys);
+        return "history";
+    }
 
 }

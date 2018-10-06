@@ -36,8 +36,7 @@
         <td>
             <select id="toHaltSelect">
                 <option value="">select</option>
-                <option class="option" th:each="halt : ${halts}" th:value="${halt.id}"
-                        th:text="${halt.id}+' : '+${halt.name}"></option>
+                <option class="option" th:each="halt : ${halts}" th:value="${halt.id}" th:text="${halt.id}+' : '+${halt.name}"></option>
             </select>
         </td>
     </tr>
