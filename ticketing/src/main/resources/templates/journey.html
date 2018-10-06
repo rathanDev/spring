@@ -4,41 +4,56 @@
     <title>Getting Started: Handling Form Submission</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+
 </head>
 <body>
 
-Select a halt
+<h1 style="text-align:center">Halts</h1>
 
-<div class="col-lg-3">
-    <select class="target">
-        <option value="">select</option>
-        <option class="option" th:each="halt : ${halts}" th:value="${halt.id}" th:text="${halt.id}+' : '+${halt.name}"></option>
-    </select>
-</div>
+<table style="width:100%">
 
-<br>
+    <tr>
+        <th>Current halt</th>
+        <td>
+            <select class="target">
+                <option value="">select</option>
+                <option class="option" th:each="halt : ${halts}" th:value="${halt.id}"
+                        th:text="${halt.id}+' : '+${halt.name}"></option>
+            </select>
+        </td>
+    </tr>
 
-Next halt:
-<label id="nextHalt"></label>
+    <tr>
+        <th>Next Halt</th>
+        <td><label id="nextHalt"></label></td>
+    </tr>
 
-<br>
+    <tr>
+        <th>Previous Halt</th>
+        <td><label id="previousHalt"></label></td>
+    </tr>
 
-Previous halt:
-<label id="previousHalt"></label>
+</table>
 
 <script>
-    $(document).ready(function(){
+    $(document).ready(function () {
 
-        $("#buttonId").click(function(){
+        $("#buttonId").click(function () {
             alert("button was clicked.");
         });
 
-        $( ".target" ).change(function() {
+        $(".target").change(function () {
             var halt = $('.target').find(":selected").text();
             console.log('halt', halt);
             var haltId = parseInt(halt.split(":")[0].trim());
 
-            $.get( "/journey/find/" + haltId, function( data ) {
+            $.get("/journey/find/" + haltId, function (data) {
                 console.log('data', data);
                 $("#nextHalt").text(data.nextHaltName);
                 $("#previousHalt").text(data.previousHaltName);
