@@ -1,7 +1,8 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <title>Getting Started: Handling Form Submission</title>
+    <title>halt</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
@@ -12,16 +13,45 @@
     </style>
 
 </head>
+
 <body>
 
-<h1 style="text-align:center">Halts</h1>
+<h1 style="text-align:center">Journey</h1>
 
-<table style="width:100%">
+<table id="fromToTable" style="width:100%">
 
     <tr>
-        <th>Current halt</th>
+        <th width="250">From</th>
         <td>
-            <select class="target">
+            <select id="fromHaltSelect">
+                <option value="">select</option>
+                <option class="option" th:each="halt : ${halts}" th:value="${halt.id}"
+                        th:text="${halt.id}+' : '+${halt.name}"></option>
+            </select>
+        </td>
+    </tr>
+
+    <tr>
+        <th>To</th>
+        <td>
+            <select id="toHaltSelect">
+                <option value="">select</option>
+                <option class="option" th:each="halt : ${halts}" th:value="${halt.id}"
+                        th:text="${halt.id}+' : '+${halt.name}"></option>
+            </select>
+        </td>
+    </tr>
+
+</table>
+
+<button id="startButton" style="text-align: center; margin: 5px 0px 30px 257px;">Start</button>
+
+<table id="currentHaltTable" style="width:100%">
+
+    <tr>
+        <th width="250">Current halt</th>
+        <td>
+            <select id="currentHaltSelect" class="target">
                 <option value="">select</option>
                 <option class="option" th:each="halt : ${halts}" th:value="${halt.id}"
                         th:text="${halt.id}+' : '+${halt.name}"></option>
@@ -44,22 +74,38 @@
 <script>
     $(document).ready(function () {
 
-        $("#buttonId").click(function () {
-            alert("button was clicked.");
+        $("#currentHaltTable").hide();
+
+        $("#startButton").click(function () {
+            var fromHalt = $('#fromHaltSelect').find(":selected").text();
+            console.log('fromHalt', fromHalt);
+            var toHalt = $('#toHaltSelect').find(":selected").text();
+            console.log('toHalt', toHalt);
+
+            $("#currentHaltTable").show();
+
+            var fromHaltId = parseInt(fromHalt.split(":")[0].trim());
+            $("#currentHaltSelect").val(fromHaltId);
+
+            setNextPreviousHalts(fromHaltId);
         });
 
-        $(".target").change(function () {
-            var halt = $('.target').find(":selected").text();
+        $("#currentHaltSelect").change(function () {
+            var halt = $('#currentHaltSelect').find(":selected").text();
             console.log('halt', halt);
             var haltId = parseInt(halt.split(":")[0].trim());
 
-            $.get("/journey/find/" + haltId, function (data) {
+            setNextPreviousHalts(haltId);
+
+        });
+
+        function setNextPreviousHalts(currentHaltId) {
+            $.get("/journey/find/" + currentHaltId, function (data) {
                 console.log('data', data);
                 $("#nextHalt").text(data.nextHaltName);
                 $("#previousHalt").text(data.previousHaltName);
             });
-
-        });
+        }
 
     });
 </script>

@@ -1,6 +1,5 @@
 package org.sliit.controller;
 
-import org.sliit.model.Greeting;
 import org.sliit.model.LoginForm;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

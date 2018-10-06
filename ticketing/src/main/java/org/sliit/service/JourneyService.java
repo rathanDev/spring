@@ -30,23 +30,17 @@ public class JourneyService {
 
         arpicoHalt.setId(2);
         arpicoHalt.setName("wellawatte arpico");
-//        arpicoHalt.setNextHaltName("wellawatte police");
         arpicoHalt.setNextHalt(policeHalt);
         arpicoHalt.setPreviousHalt(roxyHalt);
-//        arpicoHalt.setPreviousHaltName("dehiwala roxy");
 
         roxyHalt.setId(3);
         roxyHalt.setName("Dehiwala roxy");
-//        roxyHalt.setNextHaltName("Wellawatter arpico");
         roxyHalt.setNextHalt(arpicoHalt);
-//        roxyHalt.setPreviousHaltName("dehiwala william");
         roxyHalt.setPreviousHalt(williamHalt);
 
         williamHalt.setId(4);
         williamHalt.setName("Dehiwala william");
-//        williamHalt.setNextHaltName("dehiwala roxy");
         williamHalt.setNextHalt(roxyHalt);
-//        williamHalt.setPreviousHaltName("dehiwala flyover");
         williamHalt.setPreviousHalt(flyOverHalt);
 
         flyOverHalt.setId(5);
