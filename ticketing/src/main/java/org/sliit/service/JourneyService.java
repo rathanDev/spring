@@ -1,6 +1,7 @@
 package org.sliit.service;
 
 import org.sliit.model.Halt;
+import org.sliit.model.Journey;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -10,6 +11,7 @@ import java.util.List;
 public class JourneyService {
 
     private List<Halt> halts = new ArrayList<>();
+    private List<Journey> journeys = new ArrayList<>();
 
     public JourneyService() {
         createHalts();
@@ -68,6 +70,12 @@ public class JourneyService {
             }
         }
         return selected;
+    }
+
+    public void save(Journey journey) {
+        System.out.println("Save " + journey);
+        journeys.add(journey);
+        System.out.println("Journeys " + journeys);
     }
 
 }

@@ -88,6 +88,12 @@
             $("#currentHaltSelect").val(fromHaltId);
 
             setNextPreviousHalts(fromHaltId);
+
+            var toHaltId = parseInt(toHalt.split(":")[0].trim());
+
+            $.post("/journey/save/fromHalt/" + fromHaltId + "/toHalt/" + toHaltId, function (data) {
+                console.log('save journey', data);
+            });
         });
 
         $("#currentHaltSelect").change(function () {

@@ -4,7 +4,6 @@ public class Halt {
 
     private int id;
     private String name;
-    private String location;
     private String nextHaltName;
     private Halt nextHalt;
     private String previousHaltName;
@@ -24,14 +23,6 @@ public class Halt {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
     }
 
     public String getNextHaltName() {
@@ -71,7 +62,6 @@ public class Halt {
         return "Halt{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", location='" + location + '\'' +
                 ", nextHaltName='" + nextHaltName + '\'' +
                 ", previousHaltName='" + previousHaltName + '\'' +
                 '}';

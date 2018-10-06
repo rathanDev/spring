@@ -1,14 +1,12 @@
 package org.sliit.controller;
 
 import org.sliit.model.Halt;
+import org.sliit.model.Journey;
 import org.sliit.service.JourneyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -40,6 +38,16 @@ public class JourneyController {
         System.out.println("halt = " + halt);
 
         return halt;
+    }
+
+    @PostMapping("/save/fromHalt/{fromHaltId}/toHalt/{toHaltId}")
+    @ResponseBody
+    public String save(@PathVariable("fromHaltId") int fromHaltId,
+                       @PathVariable("toHaltId") int toHaltId) {
+        Halt fromHalt = journeyService.findById(fromHaltId);
+        Halt toHalt = journeyService.findById(toHaltId);
+        journeyService.save(new Journey(fromHalt, toHalt));
+        return "ok";
     }
 
 
