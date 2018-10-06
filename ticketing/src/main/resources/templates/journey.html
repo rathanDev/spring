@@ -105,7 +105,7 @@
         });
 
         function setNextPreviousHalts(currentHaltId) {
-            $.get("/journey/find/" + currentHaltId, function (data) {
+            $.get("/halt/find/" + currentHaltId, function (data) {
                 console.log('data', data);
                 $("#nextHalt").text(data.nextHaltName);
                 $("#previousHalt").text(data.previousHaltName);

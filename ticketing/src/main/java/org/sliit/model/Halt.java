@@ -9,6 +9,17 @@ public class Halt {
     private String previousHaltName;
     private Halt previousHalt;
 
+    public Halt() {
+    }
+
+    public Halt(String name, Halt nextHalt, Halt previousHalt) {
+        this.name = name;
+        this.nextHalt = nextHalt;
+        this.nextHaltName = nextHalt.getName();
+        this.previousHalt = previousHalt;
+        this.previousHaltName = previousHalt.getName();
+    }
+
     public int getId() {
         return id;
     }

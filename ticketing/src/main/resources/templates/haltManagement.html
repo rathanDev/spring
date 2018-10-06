@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>halt</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<h1 style="text-align:center">Halt Management</h1>
+
+<h3>Create or Update halt</h3>
+
+<table style="width:100%">
+
+    <tr>
+        <th width="250">Halt Id</th>
+        <td>
+            <input type="text" id="haltId">
+        </td>
+    </tr>
+
+    <tr>
+        <th width="250">Halt Name</th>
+        <td>
+            <input type="text" id="haltName">
+        </td>
+    </tr>
+
+    <tr>
+        <th>Next Halt Id</th>
+        <td>
+            <input type="text" id="nextHaltId">
+        </td>
+    </tr>
+
+    <tr>
+        <th>Previous Halt Id</th>
+        <td>
+            <input type="text" id="previousHaltId">
+        </td>
+    </tr>
+
+</table>
+
+<button id="createButton" style="text-align: center; margin: 5px 0px 30px 257px;">Create Halt</button>
+<button id="updateButton" style="text-align: center; margin: 5px 0px 30px 40px;">Update Halt</button>
+
+
+<script>
+    $(document).ready(function () {
+
+        $("#createButton").click(function () {
+
+            var haltName = $("#haltName").val();
+            var nextHaltId = parseInt($("#nextHaltId").val());
+            var previousHaltId = parseInt($("#previousHaltId").val());
+
+            $.post("/halt/save/haltName/" + haltName + "/nextHaltId/" + nextHaltId + "/previousHaltId/" + previousHaltId, function (data) {
+                console.log('save halt', data);
+            });
+        });
+
+        $("#updateButton").click(function () {
+
+            var haltId = parseInt($("#haltId").val());
+            if(!haltId) {
+                haltId = 0;
+            }
+
+            var haltName = $("#haltName").val();
+            var nextHaltId = parseInt($("#nextHaltId").val());
+            var previousHaltId = parseInt($("#previousHaltId").val());
+
+            $.post("/halt/update/haltId/"+ haltId +"/haltName/" + haltName + "/nextHaltId/" + nextHaltId + "/previousHaltId/" + previousHaltId, function (data) {
+                console.log('update halt', data);
+            });
+        });
+
+    });
+</script>
+
+</body>
+</html>
+

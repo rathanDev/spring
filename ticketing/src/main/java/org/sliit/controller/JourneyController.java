@@ -2,6 +2,7 @@ package org.sliit.controller;
 
 import org.sliit.model.Halt;
 import org.sliit.model.Journey;
+import org.sliit.service.HaltService;
 import org.sliit.service.JourneyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,35 +20,23 @@ public class JourneyController {
     @Autowired
     JourneyService journeyService;
 
+    @Autowired
+    HaltService haltService;
+
     @GetMapping("/start")
     public String start(Model model) {
-        List<Halt> halts = journeyService.getHalts();
+        List<Halt> halts = haltService.getAll();
         System.out.println("halts = " + halts);
         model.addAttribute("halts", halts);
         return "journey";
-    }
-
-    @GetMapping("/find/{haltId}")
-    @ResponseBody
-    public Halt find(@PathVariable("haltId") int haltid) {
-        System.out.println("selected haltid = " + haltid);
-        Halt selectedHalt = journeyService.findById(haltid);
-        System.out.println("selectedHalt = " + selectedHalt);
-
-        Halt halt = new Halt();
-        halt.setNextHaltName(selectedHalt.getNextHalt().getName());
-        halt.setPreviousHaltName(selectedHalt.getPreviousHalt().getName());
-        System.out.println("halt = " + halt);
-
-        return halt;
     }
 
     @PostMapping("/save/fromHalt/{fromHaltId}/toHalt/{toHaltId}")
     @ResponseBody
     public String save(@PathVariable("fromHaltId") int fromHaltId,
                        @PathVariable("toHaltId") int toHaltId) {
-        Halt fromHalt = journeyService.findById(fromHaltId);
-        Halt toHalt = journeyService.findById(toHaltId);
+        Halt fromHalt = haltService.findById(fromHaltId);
+        Halt toHalt = haltService.findById(toHaltId);
         journeyService.save(new Journey(new Date(), fromHalt, toHalt));
         return "ok";
     }
