@@ -1,4 +1,4 @@
-package org.jana;
+package org.jana.controller;
 
 import java.util.Map;
 
@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class WelcomeController {
 
-	// inject via application.properties
 	@Value("${welcome.message:test}")
 	private String message = "Hello World";
 
