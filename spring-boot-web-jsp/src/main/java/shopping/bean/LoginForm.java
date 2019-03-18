@@ -1,4 +1,4 @@
-package shopping.model;
+package shopping.bean;
 
 public class LoginForm {
 
