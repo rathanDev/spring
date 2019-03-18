@@ -1,4 +1,4 @@
-package org.jana.controller;
+package shopping.controller;
 
 import java.util.Map;
 

@@ -1,4 +1,4 @@
-package org.jana.controller;
+package shopping.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
