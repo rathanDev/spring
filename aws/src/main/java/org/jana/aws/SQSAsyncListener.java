@@ -11,7 +11,16 @@ public class SQSAsyncListener implements MessageListener {
     public void onMessage(Message message) {
         try {
             System.out.println("Received: " + ((TextMessage) message).getText());
-        } catch (JMSException e) {
+
+            System.out.println("-------------------------------------------------------------------------------------");
+            System.out.println("-------------------------------------------------------------------------------------");
+            System.out.println("-------------------------------------------------------------------------------------");
+            System.out.println("-------------------------------------------------------------------------------------");
+            System.out.println("-------------------------------------------------------------------------------------");
+
+            Thread.sleep(5000);
+
+        } catch (JMSException | InterruptedException e) {
             e.printStackTrace();
         }
     }
