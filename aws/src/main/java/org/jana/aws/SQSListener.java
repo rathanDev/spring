@@ -67,7 +67,7 @@ public class SQSListener {
                 .withMaxNumberOfMessages(10);
         List<Message> messages = sqs.receiveMessage(receiveMessageRequest).getMessages();
 
-        System.out.println("message = " + messages.get(0));
+        System.out.println("messageReceived: " + messages.get(0));
     }
 
     public void listQueues(AmazonSQS sqs) {
@@ -81,6 +81,8 @@ public class SQSListener {
 
     public void createJms() {
 
+        System.out.println("------------------------Create JMS--------------------------------------");
+
         AWSCredentials credentials = new BasicAWSCredentials(ACCESS_KEY, SECRET_KEY);
         AWSStaticCredentialsProvider awsStaticCredentialsProvider = new AWSStaticCredentialsProvider(credentials);
 
@@ -92,18 +94,18 @@ public class SQSListener {
 
         try {
             SQSConnection connection = connectionFactory.createConnection();
-            AmazonSQSMessagingClientWrapper client = connection.getWrappedAmazonSQSClient();
+//            AmazonSQSMessagingClientWrapper client = connection.getWrappedAmazonSQSClient();
 
-            if (!client.queueExists("FirstFifo.fifo")) {
-                Map<String, String> attributes = new HashMap<>();
-                attributes.put("FifoQueue", "true");
-                attributes.put("ContentBasedDeduplication", "true");
-                client.createQueue(new CreateQueueRequest().withQueueName("FirstFifo.fifo").withAttributes(attributes));
-            }
+//            if (!client.queueExists("FirstFifo.fifo")) {
+//                Map<String, String> attributes = new HashMap<>();
+//                attributes.put("FifoQueue", "true");
+//                attributes.put("ContentBasedDeduplication", "true");
+//                client.createQueue(new CreateQueueRequest().withQueueName("FirstFifo.fifo").withAttributes(attributes));
+//            }
 
             Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 
-            Queue queue = session.createQueue("FirstFifo.fifo");
+            Queue queue = session.createQueue("firstQueue");
 
 //            MessageProducer producer = session.createProducer(queue);
 //            TextMessage message = session.createTextMessage("First text message");
@@ -117,16 +119,20 @@ public class SQSListener {
             MessageConsumer consumer = session.createConsumer(queue);
             connection.start();
 
-            javax.jms.Message receivedMessage = consumer.receive();
+            System.out.println("----------------------------ReadyToReceiveMessage-------------------------------------");
+            javax.jms.Message receivedMessage = consumer.receive(1000);
             if (receivedMessage != null) {
-                System.out.println("Received message: " + ((TextMessage) receivedMessage).getText());
+                System.out.println("ReceivedMessage: " + ((TextMessage) receivedMessage).getText());
 
-                System.out.println("Group id: " + receivedMessage.getStringProperty("JMSXGroupID"));
-                System.out.println("Message deduplication id: " + receivedMessage.getStringProperty("JMS_SQS_DeduplicationId"));
-                System.out.println("Message sequence number: " + receivedMessage.getStringProperty("JMS_SQS_SequenceNumber"));
+//                System.out.println("Group id: " + receivedMessage.getStringProperty("JMSXGroupID"));
+//                System.out.println("Message deduplication id: " + receivedMessage.getStringProperty("JMS_SQS_DeduplicationId"));
+//                System.out.println("Message sequence number: " + receivedMessage.getStringProperty("JMS_SQS_SequenceNumber"));
+            } else {
+                System.out.println("ReceivedMessage:null");
             }
 
-
+            System.out.println("----------------------------close connection------------------------------------------");
+            connection.close();
 
 
         } catch (JMSException e) {
