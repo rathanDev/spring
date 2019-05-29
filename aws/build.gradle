@@ -19,7 +19,7 @@ dependencies {
     compile(
             'org.springframework.boot:spring-boot-starter-web',
             'org.springframework.boot:spring-boot-starter-actuator',
-            'com.amazonaws:aws-java-sdk-s3:1.11.325',
-            'com.amazonaws:aws-java-sdk-sqs:1.11.560'
+            'com.amazonaws:aws-java-sdk-sqs:1.11.560',
+            'com.amazonaws:amazon-sqs-java-messaging-lib:1.0.0'
     )
 }
