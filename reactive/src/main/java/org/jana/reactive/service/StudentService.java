@@ -15,15 +15,13 @@ public class StudentService {
     StudentRepo studentRepo;
 
     public Flux<Student> getAll() {
-        Flux<Student> all = studentRepo.findAll();
-        return all;
+        return studentRepo.findAll();
     }
 
-    public Student save(SaveStudentRequest request) {
+    public void save(SaveStudentRequest request) {
         Student student = new Student();
         student.setName(request.getName());
-        Mono<Student> save = studentRepo.save(student);
-        return null;
+        studentRepo.save(student);
     }
 
 }

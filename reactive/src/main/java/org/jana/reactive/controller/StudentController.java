@@ -16,15 +16,13 @@ public class StudentController {
     private StudentService studentService;
 
     @PostMapping("/save")
-    public Student save(@RequestBody SaveStudentRequest request) {
+    public void save(@RequestBody SaveStudentRequest request) {
         studentService.save(request);
-        return null;
     }
 
     @GetMapping(value = "/all", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public Flux<Student> getAll() {
-        Flux<Student> all = studentService.getAll();
-        return all;
+        return studentService.getAll();
     }
 
 }
