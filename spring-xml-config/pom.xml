@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>SpringTest</groupId>
-    <artifactId>SpringTestXmlConfig</artifactId>
+    <artifactId>spring-xml-config</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
     <properties>
