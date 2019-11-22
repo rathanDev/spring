@@ -1,7 +1,7 @@
-package org.sliit.controller;
+package org.jana.controller;
 
-import org.sliit.model.Greeting;
-import org.sliit.service.GreetingService;
+import org.jana.model.Greeting;
+import org.jana.service.GreetingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

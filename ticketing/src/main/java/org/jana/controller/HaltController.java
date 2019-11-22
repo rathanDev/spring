@@ -1,7 +1,7 @@
-package org.sliit.controller;
+package org.jana.controller;
 
-import org.sliit.model.Halt;
-import org.sliit.service.HaltService;
+import org.jana.model.Halt;
+import org.jana.service.HaltService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;

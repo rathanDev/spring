@@ -1,9 +1,9 @@
-package org.sliit.controller;
+package org.jana.controller;
 
-import org.sliit.model.Halt;
-import org.sliit.model.Journey;
-import org.sliit.service.HaltService;
-import org.sliit.service.JourneyService;
+import org.jana.model.Halt;
+import org.jana.model.Journey;
+import org.jana.service.HaltService;
+import org.jana.service.JourneyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

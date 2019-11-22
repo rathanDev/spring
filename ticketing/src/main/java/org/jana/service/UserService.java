@@ -1,6 +1,6 @@
-package org.sliit.service;
+package org.jana.service;
 
-import org.sliit.model.LoginForm;
+import org.jana.model.LoginForm;
 import org.springframework.stereotype.Service;
 
 @Service

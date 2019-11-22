@@ -1,4 +1,4 @@
-package org.sliit.service;
+package org.jana.service;
 
 import org.springframework.stereotype.Service;
 

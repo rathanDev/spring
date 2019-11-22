@@ -1,7 +1,6 @@
-package org.sliit.service;
+package org.jana.service;
 
-import org.sliit.model.Halt;
-import org.sliit.model.Journey;
+import org.jana.model.Journey;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

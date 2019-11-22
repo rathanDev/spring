@@ -1,4 +1,4 @@
-package org.sliit.model;
+package org.jana.model;
 
 public class Greeting {
 

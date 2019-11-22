@@ -1,6 +1,6 @@
-package org.sliit.service;
+package org.jana.service;
 
-import org.sliit.model.Halt;
+import org.jana.model.Halt;
 import org.springframework.stereotype.Service;
 
 import java.util.*;

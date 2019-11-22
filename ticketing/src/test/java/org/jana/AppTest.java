@@ -1,4 +1,4 @@
-package org.sliit;
+package org.jana;
 
 import static org.junit.Assert.assertTrue;
 
