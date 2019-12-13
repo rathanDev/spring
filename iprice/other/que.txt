@@ -1,0 +1,12 @@
+Using object-oriented concepts, create a web application that accepts a string and does the following to it:
+- converts the string to uppercase and outputs it to brower.
+- converts the string to alternate upper and lower case and outputs it to brower.
+- creates a CSV format from the string by making each character a column in the CSV and then output "CSV created!" to brower.
+
+Make sure the code unit-testable and extendable.
+
+Example: when the input: "hello world", we should see the following in brower:
+    HELLO WORLD
+    hElLo wOrLd
+    CSV created!
+...and a CSV file containing the following: h,e,l,l,o, ,w,o,r,l,d
