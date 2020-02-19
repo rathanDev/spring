@@ -21,7 +21,8 @@ public class OptimisticLockApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 
 		AccountService es = context.getBean(AccountService.class);
-		es.run();
+//		es.run();
+		es.runLock();
 
 		System.out.println("End");
 
