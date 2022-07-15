@@ -14,7 +14,7 @@
         <servletapi.version>3.0-alpha-1</servletapi.version>
         <hibernate.version>4.3.5.Final</hibernate.version>
         <slf4j-version>1.7.5</slf4j-version>
-        <jackson-version>2.8.6</jackson-version>
+        <jackson-version>2.12.6.1</jackson-version>
         <spring.security.version>4.2.1.RELEASE</spring.security.version>
         <apachetiles.version>3.0.5</apachetiles.version>
     </properties>
